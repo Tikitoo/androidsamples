@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <me.tikitoo.androiddemo.view.PaintDraw
+        android:id="@+id/text_paint_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+
+    <me.tikitoo.androiddemo.view.DrawView
+        android:id="@+id/draw_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="saveBtn"
+        android:text="@string/btn_save"
+        />
+
+</LinearLayout>
