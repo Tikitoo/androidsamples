@@ -2,4 +2,19 @@
     <string name="app_name">AndroidDemo</string>
     <string name="action_settings">Settings</string>
     <string name="btn_save">Save</string>
+    <string name="sky_star">Sky Star</string>
+    <string name="canvas">Canvas</string>
+    <string name="layer">Layer</string>
+    <string name="clip">Clip</string>
+    <string name="anim">Anim</string>
+    <string name="anim_scale">Scale</string>
+    <string name="anim_translation">Translation</string>
+    <string name="anim_rotation">Rotation</string>
+    <string name="anim_alpha">Alpha</string>
+    <string name="anim_obj">Object</string>
+    <string name="anim_value">Value</string>
+    <string name="anim_paralola">Palabola</string>
+    <string name="anim_tween">Tween</string>
+    <string name="anim_frame">Frame</string>
+    <string name="anim_obj_custom">Custom Obj</string>
 </resources>

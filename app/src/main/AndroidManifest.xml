@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.CustomViewActivity" />
-
+        <activity android:name=".view.SkyStarActivity" />
+        <activity android:name=".anim.AnimActivity" />
+        <activity android:name=".anim.AnimShowActivity" />
 
     </application>
 
