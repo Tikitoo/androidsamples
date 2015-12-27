@@ -1,7 +1,5 @@
 package me.tikitoo.androiddemo.view;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -19,7 +17,8 @@ public class ParabolaView extends View {
 
     public enum RunModel {
         VERTICAL,
-        PARABOLA
+        PARABOLA,
+        EVALUATOR
     }
 
     RunModel mRunModel;
@@ -63,18 +62,12 @@ public class ParabolaView extends View {
             case PARABOLA:
                 parabolaRun();
                 break;
+            case EVALUATOR:
+                parabolaEvaluator();
+                break;
         }
     }
 
-    public void onDrawAgain() {
-        ObjectAnimator maxRadiusAnim = ObjectAnimator.ofInt(this, "maxRadius", 50, 200, 50);
-
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(maxRadiusAnim);
-        animatorSet.setDuration(5000);
-//        animatorSet.setInterpolator(new CycleInterpolator(5));
-        animatorSet.start();
-    }
 
     private void verticalRun() {
         ValueAnimator animator = ValueAnimator.ofFloat(0, getHeight());
@@ -114,6 +107,20 @@ public class ParabolaView extends View {
         animator.setDuration(3000).start();
     }
 
+    private void parabolaEvaluator() {
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(300, 300);
+        ValueAnimator anim = ValueAnimator.ofObject(new PointEvaluator(), p1, p2);
+        anim.setTarget(this);
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                invalidate();
+            }
+        });
+        anim.setDuration(3000).start();
+    }
+
 
 
     public int getMaxRadius() {
@@ -133,5 +140,34 @@ public class ParabolaView extends View {
     public void setRunModel(RunModel runModel) {
         mRunModel = runModel;
         invalidate();
+    }
+
+    public class PointEvaluator implements TypeEvaluator<Point> {
+
+        @Override
+        public Point evaluate(float fraction, Point startValue, Point endValue) {
+            float x = startValue.getX() + fraction * (endValue.getX() - startValue.getX());
+            float y = startValue.getY() + fraction * (endValue.getY() - startValue.getY());
+            Point point = new Point(x, y);
+            return point;
+        }
+    }
+
+    public class Point {
+        private float x;
+        private float y;
+
+        public Point(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public float getX() {
+            return x;
+        }
+
+        public float getY() {
+            return y;
+        }
     }
 }

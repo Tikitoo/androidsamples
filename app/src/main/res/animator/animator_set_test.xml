@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially"
+    >
+    <objectAnimator
+        android:propertyName="scaleX"
+        android:duration="3000"
+        android:valueFrom="0.5f"
+        android:valueTo="1f"
+        android:valueType="floatType"
+        android:repeatMode="restart"
+        />
+
+    <animator
+        android:duration="2000"
+        android:valueFrom="0f"
+        android:valueTo="0.5f"
+        android:valueType="floatType"
+        />
+
+
+</set>

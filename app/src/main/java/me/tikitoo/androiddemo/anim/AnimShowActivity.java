@@ -53,7 +53,7 @@ public class AnimShowActivity extends AppCompatActivity {
                 break;
             case R.id.anim_parabola_btn:
                 ParabolaView parabolaView = new ParabolaView(this);
-                parabolaView.setRunModel(ParabolaView.RunModel.PARABOLA);
+                parabolaView.setRunModel(ParabolaView.RunModel.EVALUATOR);
                 parabolaView.setMaxRadius(100);
                 mView = parabolaView;
 
@@ -68,9 +68,6 @@ public class AnimShowActivity extends AppCompatActivity {
 
     private void initView() {
 
-        if (mView instanceof ObjView) {
-
-        }
     }
 
 }

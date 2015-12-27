@@ -1,6 +1,8 @@
 package me.tikitoo.androiddemo.anim;
 
+import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
@@ -37,7 +39,8 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
         int[] ids = new int[] {
                 R.id.anim_tween_btn, R.id.anim_frame_btn,
                 R.id.anim_scale_btn, R.id.anim_translation_btn, R.id.anim_rotation_btn, R.id.anim_alpha_btn,
-                R.id.anim_value_btn, R.id.anim_obj_btn, R.id.anim_obj_btn_custom, R.id.anim_parabola_btn
+                R.id.anim_value_btn, R.id.anim_obj_btn, R.id.anim_obj_btn_custom, R.id.anim_parabola_btn,
+                R.id.anim_key_frame_btn, R.id.anim_xml_btn
 
         };
         for (int i = 0; i < ids.length; i++) {
@@ -129,6 +132,26 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
         animtorObj.start();
     }
 
+
+    private void loadObjAnimKeyframe() {
+        Keyframe kf0 = Keyframe.ofFloat(0f, 0f);
+        Keyframe kf1 = Keyframe.ofFloat(0.5f, 360f);
+        Keyframe kf2 = Keyframe.ofFloat(1f, 0f);
+        PropertyValuesHolder pvbRotation
+                = PropertyValuesHolder.ofKeyframe("rotation", kf0, kf1, kf2);
+        ObjectAnimator rotationAnim
+                = ObjectAnimator.ofPropertyValuesHolder(mImageViewBase, pvbRotation);
+        rotationAnim.setDuration(5000);
+        rotationAnim.start();
+    }
+
+    private void loadObjAnimXml() {
+        AnimatorSet set = (AnimatorSet) AnimatorInflater.loadAnimator(this,
+                R.animator.animator_set_test);
+        set.setTarget(mImageViewBase);
+        set.start();
+    }
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -167,6 +190,13 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
                 loadObjAnimAndSet();
 //                loadObjAnimAndSet2();
                 break;
+            case R.id.anim_key_frame_btn:
+                loadObjAnimKeyframe();
+                break;
+            case R.id.anim_xml_btn:
+                loadObjAnimXml();
+                break;
+
             default:
                 break;
         }

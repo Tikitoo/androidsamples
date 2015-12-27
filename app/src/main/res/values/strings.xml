@@ -17,4 +17,6 @@
     <string name="anim_tween">Tween</string>
     <string name="anim_frame">Frame</string>
     <string name="anim_obj_custom">Custom Obj</string>
+    <string name="anim_key_frame">Key Frame</string>
+    <string name="anim_xml">Xml</string>
 </resources>
