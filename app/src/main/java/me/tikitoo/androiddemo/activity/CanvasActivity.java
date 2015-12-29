@@ -32,7 +32,7 @@ public class CanvasActivity extends AppCompatActivity implements View.OnClickLis
                 R.id.view_btn_circle, R.id.view_btn_02, R.id.view_btn_color, R.id.view_btn_line,
                 R.id.view_btn_oval, R.id.view_btn_text_location, R.id.view_btn_rect, R.id.view_btn_round_rect,
                 R.id.canvas_btn, R.id.layer_btn, R.id.clip_btn, R.id.clip_btn_02,
-                R.id.view_btn_path, R.id.view_btn_anim, R.id.view_btn_round_progress,
+                R.id.view_btn_path, R.id.view_btn_anim, R.id.view_btn_round_progress, R.id.view_btn_label,
                 R.id.view_btn_clock, R.id.view_btn_drop_indicator, R.id.sky_star_btn, R.id.view_btn_draw_layout
         };
 

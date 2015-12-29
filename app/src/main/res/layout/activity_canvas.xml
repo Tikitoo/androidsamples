@@ -136,6 +136,15 @@
             android:text="@string/custom_view_round_progress"
             />
 
+        <Button
+            android:id="@+id/view_btn_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_view_label"
+            />
+
+
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
