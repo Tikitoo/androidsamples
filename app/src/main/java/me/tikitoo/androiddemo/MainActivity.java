@@ -7,9 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import me.tikitoo.androiddemo.anim.AnimActivity;
-import me.tikitoo.androiddemo.utils.Navigator;
-import me.tikitoo.androiddemo.view.SkyStarActivity;
+import me.tikitoo.androiddemo.activity.CanvasActivity;
+import me.tikitoo.androiddemo.activity.AnimActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,16 +22,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setToolbar() {
+//        getSupportActionBar().hide();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("MainActivity");
         setSupportActionBar(toolbar);
-        getSupportActionBar().hide();
+        getSupportActionBar().setTitle("MainActivity");
+        toolbar.setTitle("MainActivity");
     }
 
     private void initView() {
         int[] ids = new int[] {
-                R.id.sky_star_btn, R.id.canvas_btn, R.id.layer_btn, R.id.clip_btn,
-                R.id.clip_btn_02, R.id.anim_btn
+                 R.id.anim_btn, R.id.canvas_btn_02
 
         };
         for (int i = 0; i < ids.length; i++) {
@@ -47,10 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.anim_btn:
                 startActivity(new Intent(this, AnimActivity.class));
                 return;
+            case R.id.canvas_btn_02:
+                startActivity(new Intent(this, CanvasActivity.class));
+                return;
             default:
                 break;
         }
-        Navigator.startView(this, SkyStarActivity.class, v);
+//        Navigator.startView(this, SkyStarActivity.class, v);
     }
 
 

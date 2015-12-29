@@ -20,11 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".view.CustomViewActivity" />
+        <activity android:name=".activity.CustomViewActivity" />
         <activity android:name=".view.SkyStarActivity" />
-        <activity android:name=".anim.AnimActivity" />
-        <activity android:name=".anim.AnimShowActivity" />
-
+        <activity android:name=".activity.AnimActivity" />
+        <activity android:name=".activity.AnimShowActivity" />
+        <activity android:name=".activity.CanvasActivity" />
+        <activity android:name=".activity.CanvasDemoActivity" />
     </application>
 
 </manifest>

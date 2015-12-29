@@ -1,4 +1,4 @@
-package me.tikitoo.androiddemo.anim;
+package me.tikitoo.androiddemo.activity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;

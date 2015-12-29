@@ -1,4 +1,4 @@
-package me.tikitoo.androiddemo.view;
+package me.tikitoo.androiddemo.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,6 +16,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 import me.tikitoo.androiddemo.R;
+import me.tikitoo.androiddemo.view.DrawView;
 
 /**
  * Created by Tikitoo on 2015/12/22.

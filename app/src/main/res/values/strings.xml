@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidDemo</string>
+    <string name="app_name">AndroidSamples</string>
     <string name="action_settings">Settings</string>
     <string name="btn_save">Save</string>
     <string name="sky_star">Sky Star</string>
@@ -19,4 +19,18 @@
     <string name="anim_obj_custom">Custom Obj</string>
     <string name="anim_key_frame">Key Frame</string>
     <string name="anim_xml">Xml</string>
+
+
+    <string name="custom_view_circle">View Circle</string>
+    <string name="custom_view_color">Color</string>
+    <string name="custom_view_line">Line</string>
+    <string name="custom_view_oval">Oval</string>
+    <string name="custom_view_text_location">Location</string>
+    <string name="custom_view_round_rect">Round Rect</string>
+    <string name="custom_view_rect">Rect</string>
+    <string name="custom_view_path">Path</string>
+    <string name="custom_view_anim">Anim</string>
+    <string name="custom_view_clock">Clock</string>
+    <string name="custom_view_sky_star">Sky Star</string>
+    <string name="custom_view_drop_indicator">Indicator</string>
 </resources>

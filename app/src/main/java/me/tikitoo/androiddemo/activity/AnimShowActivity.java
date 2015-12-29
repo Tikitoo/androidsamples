@@ -1,4 +1,4 @@
-package me.tikitoo.androiddemo.anim;
+package me.tikitoo.androiddemo.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
