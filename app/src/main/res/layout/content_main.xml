@@ -19,16 +19,16 @@
 
 
         <Button
-            android:id="@+id/anim_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/anim"
-            />
-        <Button
             android:id="@+id/canvas_btn_02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/canvas"
+            />
+        <Button
+            android:id="@+id/anim_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anim"
             />
     </LinearLayout>
 

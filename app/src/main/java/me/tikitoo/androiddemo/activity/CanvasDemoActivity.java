@@ -20,7 +20,9 @@ import me.tikitoo.androiddemo.view.CanvasView;
 import me.tikitoo.androiddemo.view.ClipView;
 import me.tikitoo.androiddemo.view.ClipView2;
 import me.tikitoo.androiddemo.view.DropIndicator;
+import me.tikitoo.androiddemo.view.LabelView;
 import me.tikitoo.androiddemo.view.LayerView;
+import me.tikitoo.androiddemo.view.SimpleLayout;
 import me.tikitoo.androiddemo.view.SkyStarView;
 
 public class CanvasDemoActivity extends AppCompatActivity {
@@ -66,6 +68,15 @@ public class CanvasDemoActivity extends AppCompatActivity {
             case R.id.clip_btn_02:
                 view = new ClipView2(this);
                 break;
+            case R.id.view_btn_draw_layout:
+                SimpleLayout simpleLayout = new SimpleLayout(this);
+                simpleLayout.addView(new LabelView(this));
+                view = simpleLayout;
+                break;
+            case R.id.view_btn_round_progress:
+//                view = getLayoutInflater().inflate(R.layout.view_round_progress_bar, null);
+                setContentView(R.layout.view_round_progress_bar);
+                return;
             default:
                 view = new CustomView(this, resId);
                 break;

@@ -33,4 +33,6 @@
     <string name="custom_view_clock">Clock</string>
     <string name="custom_view_sky_star">Sky Star</string>
     <string name="custom_view_drop_indicator">Indicator</string>
+    <string name="custom_view_draw_layout">Layout</string>
+    <string name="custom_view_round_progress">Progress</string>
 </resources>

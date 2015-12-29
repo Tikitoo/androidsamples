@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <me.tikitoo.androiddemo.view.RoundProgressBar
+        android:id="@+id/view_round_progressbar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+
+        app:roundColor="@color/colorAccent"
+        app:roundProgressColor="#88000000"
+        app:roundWidth="10dp"
+        app:textColor="@color/colorPrimary"
+        app:textSize="18dp"
+        app:max="270"
+        app:textIsDisplayable="true"
+        app:style="STROKE"
+        />
+</LinearLayout>
