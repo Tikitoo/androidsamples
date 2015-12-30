@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -21,6 +22,8 @@ import me.tikitoo.androiddemo.view.ClipView;
 import me.tikitoo.androiddemo.view.ClipView2;
 import me.tikitoo.androiddemo.view.DropIndicator;
 import me.tikitoo.androiddemo.view.LabelView;
+import me.tikitoo.androiddemo.view.MagicProgressBarTest;
+import me.tikitoo.androiddemo.view.MyListViewTest;
 import me.tikitoo.androiddemo.view.SubView;
 import me.tikitoo.androiddemo.view.LayerView;
 import me.tikitoo.androiddemo.view.SimpleLayout;
@@ -79,11 +82,15 @@ public class CanvasDemoActivity extends AppCompatActivity {
                 setContentView(R.layout.view_round_progress_bar);
                 return;
             case R.id.view_btn_label:
-                LabelView labelView = new LabelView(this);
-                labelView.setTextSize(12);
-                labelView.setTextColor(Color.GRAY);
-                labelView.setText("Hello World");
-                view = labelView;
+                view = getLabelView();
+                break;
+            case R.id.view_magic_progress:
+                final MagicProgressBarTest magicProgressBarTest = new MagicProgressBarTest(this);
+                view = magicProgressBarTest;
+                break;
+            case R.id.view_magic_list_view:
+                final MyListViewTest myListViewTest = new MyListViewTest(this);
+                view = myListViewTest;
                 break;
             default:
                 view = new CustomView(this, resId);
@@ -93,6 +100,14 @@ public class CanvasDemoActivity extends AppCompatActivity {
 
     }
 
+    @NonNull
+    private LabelView getLabelView() {
+        LabelView labelView = new LabelView(this);
+        labelView.setTextSize(12);
+        labelView.setTextColor(Color.GRAY);
+        labelView.setText("Hello World");
+        return labelView;
+    }
 
 
     private void setDropIndicator() {

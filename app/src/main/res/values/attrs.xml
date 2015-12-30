@@ -23,4 +23,10 @@
         <attr name="textColor" />
         <attr name="textSize" />
     </declare-styleable>
+
+    <declare-styleable name="MagicProgressBar">
+        <attr name="mpb_percent" format="float" />
+        <attr name="mpb_color" format="color" />
+        <attr name="mpb_default_color" format="color" />
+    </declare-styleable>
 </resources>

@@ -183,4 +183,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/view_magic_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_view_progress"
+            />
+        <Button
+            android:id="@+id/view_magic_list_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_view_list_view"
+            />
+
+
+
+    </LinearLayout>
+
+
 </LinearLayout>
