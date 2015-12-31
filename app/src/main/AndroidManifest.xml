@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.CustomViewActivity" />
-        <activity android:name=".view.SkyStarActivity" />
+        <activity android:name=".activity.SkyStarActivity" />
         <activity android:name=".activity.AnimActivity" />
         <activity android:name=".activity.AnimShowActivity" />
         <activity android:name=".activity.CanvasActivity" />

@@ -22,12 +22,12 @@ import me.tikitoo.androiddemo.view.ClipView;
 import me.tikitoo.androiddemo.view.ClipView2;
 import me.tikitoo.androiddemo.view.DropIndicator;
 import me.tikitoo.androiddemo.view.LabelView;
+import me.tikitoo.androiddemo.view.LayerView;
 import me.tikitoo.androiddemo.view.MagicProgressBarTest;
 import me.tikitoo.androiddemo.view.MyListViewTest;
-import me.tikitoo.androiddemo.view.SubView;
-import me.tikitoo.androiddemo.view.LayerView;
 import me.tikitoo.androiddemo.view.SimpleLayout;
 import me.tikitoo.androiddemo.view.SkyStarView;
+import me.tikitoo.androiddemo.view.SubView;
 
 public class CanvasDemoActivity extends AppCompatActivity {
 
@@ -92,6 +92,12 @@ public class CanvasDemoActivity extends AppCompatActivity {
                 final MyListViewTest myListViewTest = new MyListViewTest(this);
                 view = myListViewTest;
                 break;
+            case R.id.view_magic_range_graph:
+//                View graphView = LayoutInflater.from(this).inflate(R.layout.view_range_graph, null);
+//                final RangeGraph graph = (RangeGraph) graphView.findViewById(R.id.range_graph);
+//                view = graphView;
+                setContentView(R.layout.view_range_graph);
+                return;
             default:
                 view = new CustomView(this, resId);
                 break;

@@ -29,4 +29,13 @@
         <attr name="mpb_color" format="color" />
         <attr name="mpb_default_color" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="RangeGraph">
+        <attr name="color_neutral" format="float" />
+        <attr name="color_out_range" format="color" />
+        <attr name="color_in_range" format="color" />
+        <attr name="num_min" format="integer" />
+        <attr name="num_max" format="integer" />
+    </declare-styleable>
+
 </resources>

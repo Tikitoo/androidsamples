@@ -1,4 +1,4 @@
-package me.tikitoo.androiddemo.view;
+package me.tikitoo.androiddemo.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,11 @@ import android.view.View;
 
 import me.tikitoo.androiddemo.R;
 import me.tikitoo.androiddemo.utils.Navigator;
+import me.tikitoo.androiddemo.view.CanvasView;
+import me.tikitoo.androiddemo.view.ClipView;
+import me.tikitoo.androiddemo.view.ClipView2;
+import me.tikitoo.androiddemo.view.LayerView;
+import me.tikitoo.androiddemo.view.SkyStarView;
 
 /**
  * Created by Tikitoo on 2015/12/23.

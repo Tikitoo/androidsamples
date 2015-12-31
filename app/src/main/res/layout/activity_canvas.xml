@@ -201,6 +201,12 @@
             android:layout_height="wrap_content"
             android:text="@string/custom_view_list_view"
             />
+        <Button
+            android:id="@+id/view_magic_range_graph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_view_range_graph"
+            />
 
 
 
