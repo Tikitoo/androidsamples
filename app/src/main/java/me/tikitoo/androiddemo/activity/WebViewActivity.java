@@ -67,8 +67,9 @@ public class WebViewActivity extends AppCompatActivity {
 
     private void testJs() {
         String save = "javascript:save()";
+        String call = "javascript:call()";
 
-        mWebView.loadUrl(save);
+        mWebView.loadUrl(call);
     }
 
     @Override
