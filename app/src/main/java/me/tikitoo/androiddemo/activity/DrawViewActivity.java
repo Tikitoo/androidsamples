@@ -21,7 +21,7 @@ import me.tikitoo.androiddemo.view.DrawView;
 /**
  * Created by Tikitoo on 2015/12/22.
  */
-public class CustomViewActivity extends Activity {
+public class DrawViewActivity extends Activity {
 
     private DrawView mDrawView;
 

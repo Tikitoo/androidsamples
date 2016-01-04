@@ -1,17 +1,20 @@
 package me.tikitoo.androiddemo.activity;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.graphics.drawable.PictureDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -40,46 +43,71 @@ public class WebViewActivity extends AppCompatActivity {
     private void setCustomView() {
         mWebView = new WebView(this);
         mWebView.setLayoutParams(new ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT));
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.loadUrl("http://www.zhihu.com");
-
 
         setContentView(mWebView);
-//        getWindow().requestFeature(Window.FEATURE_PROGRESS);
+        WebSettings settings = mWebView.getSettings();
+        settings.setJavaScriptEnabled(true);
+//        mWebView.loadUrl("http://www.zhihu.com");
 
-        mWebView.setWebViewClient(new MyWebViewClient());
-
-
-    }
-
-
-    class MyWebViewClient extends WebViewClient {
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-            }
-
+        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.addJavascriptInterface(new WebAppInterface(this), "android");
+        mWebView.setWebChromeClient(new WebChromeClient() {
+        });
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                Log.d(TAG, "onPageFinished");
-
-                new AsyncTask<WebView, Bitmap, Bitmap>() {
-                    @Override
-                    protected Bitmap doInBackground(WebView... params) {
-                        return getWebViewBitmap(params[0]);
-                    }
-
-                    @Override
-                    protected void onPostExecute(Bitmap bitmap) {
-                        super.onPostExecute(bitmap);
-                        saveBitmap(bitmap);
-                    }
-                }.execute(view);
-
-
+                testJs();
             }
+        });
 
+        mWebView.loadUrl("file:///android_asset/html_js.html");
+
+    }
+
+    private void testJs() {
+        String save = "javascript:save()";
+
+        mWebView.loadUrl(save);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+
+    }
+
+    class MyWebViewClient extends WebViewClient {
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            Log.d(TAG, "onPageFinished");
+
+            new AsyncTask<WebView, Bitmap, Bitmap>() {
+                @Override
+                protected Bitmap doInBackground(WebView... params) {
+                    return getWebViewBitmap(params[0]);
+                }
+
+                @Override
+                protected void onPostExecute(Bitmap bitmap) {
+                    super.onPostExecute(bitmap);
+                    saveBitmap(bitmap);
+                }
+            }.execute(view);
+
+        }
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            return super.shouldOverrideUrlLoading(view, url);
+        }
     }
 
     private Bitmap getWebViewBitmap(WebView webView) {
@@ -99,15 +127,6 @@ public class WebViewActivity extends AppCompatActivity {
         webView.destroyDrawingCache();
         return b;
 
-    }
-
-    private static Bitmap pictureDrawable2Bitmap(PictureDrawable pictureDrawable){
-        Bitmap bitmap = Bitmap.createBitmap(pictureDrawable.getIntrinsicWidth()
-                , pictureDrawable.getIntrinsicHeight()
-                , Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        canvas.drawPicture(pictureDrawable.getPicture());
-        return bitmap;
     }
 
     private void saveBitmap(Bitmap bitmap) {
@@ -142,5 +161,18 @@ public class WebViewActivity extends AppCompatActivity {
         }).start();
     }
 
+
+    class WebAppInterface {
+        Context mContext;
+        public WebAppInterface(Context context) {
+            mContext = context;
+        }
+
+        // targetSdkVersion to 17 4.2 or higher
+        @JavascriptInterface
+        public void showToast(String msg) {
+            Toast.makeText(WebViewActivity.this, msg, Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }

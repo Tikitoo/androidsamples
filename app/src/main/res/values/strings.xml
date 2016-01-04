@@ -42,4 +42,5 @@
     <string name="custom_view_range_graph">Range Graph</string>
     <string name="event_touch">touch event</string>
     <string name="webview">WebView</string>
+    <string name="custom_view_draw_save">Draw Save</string>
 </resources>

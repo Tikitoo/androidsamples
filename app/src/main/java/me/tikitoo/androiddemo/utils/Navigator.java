@@ -19,4 +19,9 @@ public class Navigator {
         intent.putExtra(EXTRA_RES_ID, resId);
         context.startActivity(intent);
     }
+
+    public static void startActivity(Context context, Class<?> tClass) {
+        context.startActivity(new Intent(context, tClass));
+    }
+
 }

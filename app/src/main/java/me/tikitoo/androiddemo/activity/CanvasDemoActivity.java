@@ -17,6 +17,7 @@ import android.view.View;
 
 import me.tikitoo.androiddemo.R;
 import me.tikitoo.androiddemo.fragment.PagerFragment;
+import me.tikitoo.androiddemo.utils.Navigator;
 import me.tikitoo.androiddemo.view.CanvasView;
 import me.tikitoo.androiddemo.view.ClipView;
 import me.tikitoo.androiddemo.view.ClipView2;
@@ -47,7 +48,7 @@ public class CanvasDemoActivity extends AppCompatActivity {
     }
 
     private void parseIntent() {
-        mResId = getIntent().getIntExtra(CanvasActivity.EXTRA_RES_ID, 0);
+        mResId = getIntent().getIntExtra(Navigator.EXTRA_RES_ID, 0);
     }
 
     private void setCustomView(int resId) {
