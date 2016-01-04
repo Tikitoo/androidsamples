@@ -1,7 +1,9 @@
 package me.tikitoo.androiddemo.activity;
 
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.graphics.drawable.PictureDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +18,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * date: 2016/01/04
+ * reference:
+ *   https://github.com/android-cn/android-discuss/issues/337
+ *   http://developer.android.com/intl/zh-cn/reference/android/webkit/WebView.html
+ *   http://stackoverflow.com/questions/19959068/y-height-must-be-bitmap-height-in-android
+ *
+ */
 public class WebViewActivity extends AppCompatActivity {
     public static final int MATCH_PARENT = ViewGroup.LayoutParams.MATCH_PARENT;
     private String TAG = "WebViewActivity";
@@ -37,7 +47,18 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(mWebView);
 //        getWindow().requestFeature(Window.FEATURE_PROGRESS);
 
-        mWebView.setWebViewClient(new WebViewClient() {
+        mWebView.setWebViewClient(new MyWebViewClient());
+
+
+    }
+
+
+    class MyWebViewClient extends WebViewClient {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+            }
+
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -54,11 +75,11 @@ public class WebViewActivity extends AppCompatActivity {
                         super.onPostExecute(bitmap);
                         saveBitmap(bitmap);
                     }
-                }.execute(mWebView);
+                }.execute(view);
 
-//                saveBitmap(getWebViewBitmap());
+
             }
-        });
+
     }
 
     private Bitmap getWebViewBitmap(WebView webView) {
@@ -80,8 +101,20 @@ public class WebViewActivity extends AppCompatActivity {
 
     }
 
+    private static Bitmap pictureDrawable2Bitmap(PictureDrawable pictureDrawable){
+        Bitmap bitmap = Bitmap.createBitmap(pictureDrawable.getIntrinsicWidth()
+                , pictureDrawable.getIntrinsicHeight()
+                , Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawPicture(pictureDrawable.getPicture());
+        return bitmap;
+    }
+
     private void saveBitmap(Bitmap bitmap) {
-        File file = new File(Environment.getExternalStorageDirectory().toString() + "/" + Environment.DIRECTORY_DOWNLOADS, "hello.jpg");
+        File file = new File(
+                Environment.getExternalStorageDirectory().toString()
+                + "/" + Environment.DIRECTORY_DOWNLOADS,
+                mWebView.getTitle() + ".png");
         if (file.exists()) {
             file.delete();
         }
@@ -98,6 +131,15 @@ public class WebViewActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void test() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        }).start();
     }
 
 
