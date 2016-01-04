@@ -40,4 +40,6 @@
     <string name="delete">Delete</string>
     <string name="custom_view_list_view">ListView</string>
     <string name="custom_view_range_graph">Range Graph</string>
+    <string name="event_touch">touch event</string>
+    <string name="webview">WebView</string>
 </resources>

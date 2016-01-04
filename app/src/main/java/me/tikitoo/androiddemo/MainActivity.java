@@ -7,11 +7,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import me.tikitoo.androiddemo.activity.CanvasActivity;
 import me.tikitoo.androiddemo.activity.AnimActivity;
+import me.tikitoo.androiddemo.activity.CanvasActivity;
+import me.tikitoo.androiddemo.activity.EventActivity;
+import me.tikitoo.androiddemo.activity.WebViewActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setToolbar() {
-//        getSupportActionBar().hide();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("MainActivity");
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initView() {
         int[] ids = new int[] {
-                 R.id.anim_btn, R.id.canvas_btn_02
+                 R.id.anim_btn, R.id.canvas_btn_02, R.id.event_touch_btn, R.id.webview_btn
 
         };
         for (int i = 0; i < ids.length; i++) {
@@ -42,17 +42,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Class<?> tClass = null;
         switch (v.getId()) {
             case R.id.anim_btn:
-                startActivity(new Intent(this, AnimActivity.class));
-                return;
+                tClass = AnimActivity.class;
+                break;
             case R.id.canvas_btn_02:
-                startActivity(new Intent(this, CanvasActivity.class));
-                return;
+                tClass = CanvasActivity.class;
+                break;
+            case R.id.event_touch_btn:
+                tClass = EventActivity.class;
+                break;
+            case R.id.webview_btn:
+                tClass = WebViewActivity.class;
+                break;
             default:
                 break;
         }
-//        Navigator.startView(this, SkyStarActivity.class, v);
+        if (tClass == null) return;
+
+        startActivity(new Intent(this, tClass));
     }
 
 

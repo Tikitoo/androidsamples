@@ -2,6 +2,7 @@
 <manifest package="me.tikitoo.androiddemo"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <protected-broadcast android:name="android.intent.action.MEDIA_MOUNTED" />
     <application
@@ -26,6 +27,10 @@
         <activity android:name=".activity.AnimShowActivity" />
         <activity android:name=".activity.CanvasActivity" />
         <activity android:name=".activity.CanvasDemoActivity" />
+        <activity android:name=".activity.EventActivity" />
+        <activity android:name=".activity.WebViewActivity" />
+
+
     </application>
 
 </manifest>
