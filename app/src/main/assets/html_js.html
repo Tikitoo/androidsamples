@@ -5,18 +5,33 @@
         }
 
         function save() {
-            alert("3242");
-            <!--alert("32);-->
+            alert("save");
         }
 
         function call() {
             alert("call");
         }
+
+        function apiCall() {
+            window.location = 'apicall:////some_api_name/exec?a=1&b=2';
+        };
+
+        function jsAlert() {
+            alert("jsAlert");
+        };
+
+        function openApp(String pkgName) {
+            window.location = 'open_app://com.loopeer.android.apps.bangtuike4android';
+        };
+
     </script>
 
     <body>
         <input type="button" value="hello" onclick="save()" />
-        <input type="button" value="say hello!" onClick="showAndroidToast()" />
+        <input type="button" value="say hello!" onclick="showAndroidToast()" /> <br />
+        <!--<input type="button" value="api call" onclick="apiCall()" />
+        <input type="button" value="js alert" onclick="jsAlert()" /> <br />
+        <input type="button" value="Open App" onclick="openApp()" />-->
     </body>
 
 </html>

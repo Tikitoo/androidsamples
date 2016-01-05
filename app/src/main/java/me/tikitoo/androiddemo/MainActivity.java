@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import me.tikitoo.androiddemo.activity.AnimActivity;
+import me.tikitoo.androiddemo.activity.BaseWebViewActivity;
 import me.tikitoo.androiddemo.activity.CanvasActivity;
 import me.tikitoo.androiddemo.activity.EventActivity;
-import me.tikitoo.androiddemo.activity.WebViewActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tClass = EventActivity.class;
                 break;
             case R.id.webview_btn:
-                tClass = WebViewActivity.class;
+                tClass = BaseWebViewActivity.class;
                 break;
             default:
                 break;

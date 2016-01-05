@@ -29,6 +29,7 @@
         <activity android:name=".activity.CanvasDemoActivity" />
         <activity android:name=".activity.EventActivity" />
         <activity android:name=".activity.WebViewActivity" />
+        <activity android:name=".activity.BaseWebViewActivity" />
 
 
     </application>

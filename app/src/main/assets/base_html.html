@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+            function hello() {
+                alert("hello world");
+            }
+
+            function showToast(info) {
+                window.android.showToast(info);
+            }
+
+            function openApp() {
+                window.location = 'open_app://com.loopeer.android.apps.bangtuike4android';
+            }
+        </script>
+    </head>
+    <body>
+        <input type="button" value="hello" onclick="hello()"/>
+        <input type="button" value="showToast" onclick="showToast('hello...')"/>
+        <input type="button" value="openApp" onclick="openApp()"/>
+    </body>
+</html>

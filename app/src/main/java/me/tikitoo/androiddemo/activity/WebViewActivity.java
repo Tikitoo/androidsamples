@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -21,8 +22,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import me.tikitoo.androiddemo.utils.Navigator;
+
 /**
  * date: 2016/01/04
+ *
  * reference:
  *   https://github.com/android-cn/android-discuss/issues/337
  *   http://developer.android.com/intl/zh-cn/reference/android/webkit/WebView.html
@@ -47,12 +51,12 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(mWebView);
         WebSettings settings = mWebView.getSettings();
         settings.setJavaScriptEnabled(true);
-//        mWebView.loadUrl("http://www.zhihu.com");
 
-        mWebView.setWebViewClient(new WebViewClient());
         mWebView.addJavascriptInterface(new WebAppInterface(this), "android");
-        mWebView.setWebChromeClient(new WebChromeClient() {
-        });
+
+        mWebView.setWebChromeClient(new WebChromeClient());
+
+//        mWebView.setWebViewClient(new JSWebViewClient());
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
@@ -61,6 +65,7 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
+        mWebView.setWebChromeClient(new JSWebChromeClient());
         mWebView.loadUrl("file:///android_asset/html_js.html");
 
     }
@@ -72,9 +77,29 @@ public class WebViewActivity extends AppCompatActivity {
         mWebView.loadUrl(call);
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
+    class JSWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            if (url.startsWith("apicall://")) {
+                showToast("JSWebViewClient" + url);
+                return true;
+            } else if (url.startsWith("open_app://")){
+                int index = url.indexOf("open_app://");
+                String subStr = url.substring(index, url.length() - 1);
+                Navigator.openApp(WebViewActivity.this, subStr);
+                return true;
+            }
+            return false;
+        }
+
+    }
+
+    class JSWebChromeClient extends WebChromeClient {
+        @Override
+        public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+            showToast("JSWebChromeClient: " + message);
+            return true;
+        }
 
     }
 
@@ -153,16 +178,6 @@ public class WebViewActivity extends AppCompatActivity {
         }
     }
 
-    private void test() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        }).start();
-    }
-
-
     class WebAppInterface {
         Context mContext;
         public WebAppInterface(Context context) {
@@ -172,8 +187,11 @@ public class WebViewActivity extends AppCompatActivity {
         // targetSdkVersion to 17 4.2 or higher
         @JavascriptInterface
         public void showToast(String msg) {
-            Toast.makeText(WebViewActivity.this, msg, Toast.LENGTH_SHORT).show();
+            WebViewActivity.this.showToast(msg);
         }
     }
 
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 }
