@@ -45,7 +45,6 @@
 
 
 
-
     </LinearLayout>
 
     <LinearLayout
@@ -53,6 +52,20 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
+
+        <Button
+            android:id="@+id/tab_host_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tabs_host"
+            />
+
+        <Button
+            android:id="@+id/indicator_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tabs_host"
+            />
 
     </LinearLayout>
 

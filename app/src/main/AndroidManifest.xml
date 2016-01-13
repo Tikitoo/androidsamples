@@ -30,6 +30,7 @@
         <activity android:name=".activity.EventActivity" />
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.BaseWebViewActivity" />
+        <activity android:name=".activity.ViewPagerIndicatorActivity" />
 
 
     </application>

@@ -43,4 +43,10 @@
     <string name="event_touch">touch event</string>
     <string name="webview">WebView</string>
     <string name="custom_view_draw_save">Draw Save</string>
+    <string name="tabs_host">tab host</string>
+    <string name="home">Home</string>
+    <string name="new_fragment">New</string>
+    <string name="delete_fragment">Delete</string>
+    <string name="hello_world">Hello World</string>
+    <string name="tab_home">Home</string>
 </resources>

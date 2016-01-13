@@ -38,4 +38,10 @@
         <attr name="num_max" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="ViewPagerIndicator">
+        <attr name="item_count" format="integer" />
+    </declare-styleable>
+
+
+
 </resources>
