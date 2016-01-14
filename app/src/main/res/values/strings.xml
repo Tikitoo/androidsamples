@@ -49,4 +49,20 @@
     <string name="delete_fragment">Delete</string>
     <string name="hello_world">Hello World</string>
     <string name="tab_home">Home</string>
+    <string name="start">start</string>
+    <string name="stop">stop</string>
+    <string name="bind">bind</string>
+    <string name="unbind">unbind</string>
+    <string name="service">Service</string>
+    <string name="local_service_started">Local Service Started</string>
+    <string name="local_service_stoped">Local Service Stoped</string>
+    <string name="local_service_label">Local Service Label</string>
+    <string name="local_service_binding">Local Service Binding</string>
+    <string name="bind_service">Bind Service</string>
+    <string name="unbind_service">UnBind Service</string>
+    <string name="local_service_connected">Local Service Connected</string>
+    <string name="local_service_disconnected">Local Service Disconnected</string>
+    <string name="local_service_controller">local_service_controller</string>
+    <string name="start_service">start_service</string>
+    <string name="stop_service">Stop Service</string>
 </resources>

@@ -11,6 +11,7 @@ import me.tikitoo.androiddemo.activity.AnimActivity;
 import me.tikitoo.androiddemo.activity.BaseWebViewActivity;
 import me.tikitoo.androiddemo.activity.CanvasActivity;
 import me.tikitoo.androiddemo.activity.EventActivity;
+import me.tikitoo.androiddemo.activity.TestServiceActivity;
 import me.tikitoo.androiddemo.activity.ViewPagerIndicatorActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         int[] ids = new int[] {
                  R.id.anim_btn, R.id.canvas_btn_02, R.id.event_touch_btn, R.id.webview_btn,
-                R.id.tab_host_btn, R.id.indicator_btn
+                R.id.tab_host_btn, R.id.indicator_btn, R.id.service_btn
 
         };
         for (int i = 0; i < ids.length; i++) {
@@ -60,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.indicator_btn:
                 tClass = ViewPagerIndicatorActivity.class;
+                break;
+            case R.id.service_btn:
+                tClass = TestServiceActivity.class;
                 break;
             default:
                 break;

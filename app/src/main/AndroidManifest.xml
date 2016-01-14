@@ -31,7 +31,11 @@
         <activity android:name=".activity.WebViewActivity" />
         <activity android:name=".activity.BaseWebViewActivity" />
         <activity android:name=".activity.ViewPagerIndicatorActivity" />
+        <activity android:name=".activity.TestServiceActivity" />
 
+        <service android:name=".service.TestService"
+            android:exported="false"
+            />
 
     </application>
 

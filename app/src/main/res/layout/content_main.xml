@@ -67,6 +67,15 @@
             android:text="@string/tabs_host"
             />
 
+        <Button
+            android:id="@+id/service_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/service"
+            />
+
+
+
     </LinearLayout>
 
     <LinearLayout
