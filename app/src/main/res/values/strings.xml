@@ -65,4 +65,8 @@
     <string name="local_service_controller">local_service_controller</string>
     <string name="start_service">start_service</string>
     <string name="stop_service">Stop Service</string>
+    <string name="say_hello">Say Hello</string>
+    <string name="messager">Messager</string>
+    <string name="messenger">Messenger</string>
+    <string name="anim_nine">Nine</string>
 </resources>

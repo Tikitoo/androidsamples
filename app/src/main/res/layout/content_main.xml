@@ -9,15 +9,11 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
 
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
-
-
         <Button
             android:id="@+id/canvas_btn_02"
             android:layout_width="wrap_content"
@@ -42,9 +38,6 @@
             android:layout_height="wrap_content"
             android:text="@string/webview"
             />
-
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -73,9 +66,12 @@
             android:layout_height="wrap_content"
             android:text="@string/service"
             />
-
-
-
+        <Button
+            android:id="@+id/messenger_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/messenger"
+            />
     </LinearLayout>
 
     <LinearLayout

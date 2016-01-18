@@ -6,17 +6,20 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
+import android.util.Log;
 import android.widget.Toast;
 
-public class MessageService extends Service {
+public class MessengerService extends Service {
     public static final int MSG_SAY_HELLO = 1;
+    private String TAG = MessengerService.class.getName();
 
     class IncomingHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_SAY_HELLO:
-                    Toast.makeText(getApplicationContext(), "hello!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MessengerService.this, "hello!", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Hello");
                     break;
                 default:
                     super.handleMessage(msg);
@@ -32,7 +35,8 @@ public class MessageService extends Service {
      */
     @Override
     public IBinder onBind(Intent intent) {
-        Toast.makeText(getApplicationContext(), "binding", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "binding", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "binding");
         return mMessenger.getBinder();
     }
 

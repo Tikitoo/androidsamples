@@ -119,8 +119,10 @@
             android:text="@string/anim_xml"
             />
         <Button
+            android:id="@+id/anim_nine_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/anim_nine"
             />
 
         <Button
@@ -137,6 +139,13 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@android:color/darker_gray"
+        />
+
+    <ImageView
+        android:id="@+id/img_mini"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/holo_red_dark"
         />
 
 </LinearLayout>

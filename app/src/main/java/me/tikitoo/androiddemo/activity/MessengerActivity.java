@@ -11,62 +11,73 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
-import me.tikitoo.androiddemo.service.MessageService;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+import me.tikitoo.androiddemo.R;
+import me.tikitoo.androiddemo.service.MessengerService;
 
-public class ActivityMessengerActivity extends AppCompatActivity {
+public class MessengerActivity extends AppCompatActivity {
+    Messenger mMessenger = null;
+    boolean mBound;
+    @Bind(R.id.btn_say_hello)
+    Button mBtnSayHello;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_messageer);
+        ButterKnife.bind(this);
     }
-
-    Messenger mService = null;
-
-    /** Flag indicating whether we have called bind on the service. */
-    boolean mBound;
-
 
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            mService = new Messenger(service);
+            mMessenger = new Messenger(service);
             mBound = true;
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            mService = null;
+            mMessenger = null;
             mBound = false;
         }
     };
 
-    public void sayHello(View v) {
-        if (!mBound) return;
-        // Create and send a message to the service, using a supported 'what' value
-        Message msg = Message.obtain(null, MessageService.MSG_SAY_HELLO, 0, 0);
-        try {
-            mService.send(msg);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     protected void onStart() {
         super.onStart();
-        // Bind to the service
-        bindService(new Intent(this, MessageService.class), mServiceConnection,
-                Context.BIND_AUTO_CREATE);
+        bindService(
+                new Intent(this, MessengerService.class),
+                mServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        // Unbind from the service
         if (mBound) {
             unbindService(mServiceConnection);
             mBound = false;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+
+    }
+
+    @OnClick(R.id.btn_say_hello)
+    public void onClick(View view) {
+        if (!mBound) return;
+        Message msg = Message.obtain(null, MessengerService.MSG_SAY_HELLO, 0, 0);
+        try {
+            mMessenger.send(msg);
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 }

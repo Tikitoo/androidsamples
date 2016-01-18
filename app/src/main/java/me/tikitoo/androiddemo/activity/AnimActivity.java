@@ -25,7 +25,7 @@ import me.tikitoo.androiddemo.view.ObjView;
  * Created by Tikitoo on 2015/12/26.
  */
 public class AnimActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView mImageViewBase;
+    private ImageView mImageViewBase, mImgMini;
     private ObjView mObjView;
 
     @Override
@@ -40,7 +40,7 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
                 R.id.anim_tween_btn, R.id.anim_frame_btn,
                 R.id.anim_scale_btn, R.id.anim_translation_btn, R.id.anim_rotation_btn, R.id.anim_alpha_btn,
                 R.id.anim_value_btn, R.id.anim_obj_btn, R.id.anim_obj_btn_custom, R.id.anim_parabola_btn,
-                R.id.anim_key_frame_btn, R.id.anim_xml_btn
+                R.id.anim_key_frame_btn, R.id.anim_xml_btn, R.id.anim_nine_btn
 
         };
         for (int i = 0; i < ids.length; i++) {
@@ -50,6 +50,8 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
         
         mImageViewBase = (ImageView) findViewById(R.id.base_image_view);
         mImageViewBase.performClick();
+
+        mImgMini = (ImageView) findViewById(R.id.img_mini);
 
 
 
@@ -196,9 +198,23 @@ public class AnimActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.anim_xml_btn:
                 loadObjAnimXml();
                 break;
+            case R.id.anim_nine_btn:
+                setAnimNine();
+                break;
 
             default:
                 break;
         }
+    }
+
+    private void setAnimNine() {
+        float[] floats = new float[9];
+        for (int i = 0; i < floats.length; i++) {
+            floats[i] = 90F;
+        }
+
+        final ObjectAnimator animNine = ObjectAnimator.ofFloat(mImgMini, "rotation", floats);
+//        animNine.setDuration()
+        animNine.start();
     }
 }
